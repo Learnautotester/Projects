@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.dropdowns {
+  display: flex;
+  gap: 16px;
+}
+
+.select-box {
+  font-size: 16px;
+  padding: 10px 12px;
+  min-width: 180px;
+}
+
+.result {
+  margin-top: 24px;
+  font-size: 18px;
+  font-weight: 500;
+}
