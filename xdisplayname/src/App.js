@@ -6,13 +6,14 @@ function App() {
 
   const [firstname,setfirstname]=useState("");
   const [lastname,setlastname]=useState("");
-  
+  const [display, setDisplay] = useState("");
 
-   const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-     // prevent page refresh
+    setDisplay(firstname + " " + lastname);
   };
+
+
 
   return (
     <div>
@@ -49,8 +50,7 @@ function App() {
       </form>
 
       
-  <h2>Full Name: {firstname} {lastname}</h2>
-
+   {display ? <p>Full Name: {display}</p> : ""}
     </div>
   );
 }
