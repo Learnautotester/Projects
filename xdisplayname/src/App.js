@@ -6,11 +6,11 @@ function App() {
 
   const [firstname,setfirstname]=useState("");
   const [lastname,setlastname]=useState("");
-  const [submitted, setSubmitted] = useState(false);
+  
 
    const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    
      // prevent page refresh
   };
 
