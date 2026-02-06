@@ -48,9 +48,9 @@ function App() {
         <button type="submit">Submit</button>
       </form>
 
-      {submitted && (
+      
   <h2>Full Name: {firstname} {lastname}</h2>
-)}
+
     </div>
   );
 }
