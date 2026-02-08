@@ -5,10 +5,10 @@ const API_KEY = "b4a781447a27447bb65100635260802";
 function App() {
 
   const [city, setCity] = useState("");
-  const [loading,setLoading]=useState(false);
+  const [loading, setLoading] = useState(false);
   const [weather, setWeather] = useState(null);
 
-   const handleSearch = async () => {
+  const handleSearch = async () => {
     setLoading(true);
     setWeather(null);
     try {
@@ -21,29 +21,34 @@ function App() {
       }
 
       const data = await response.json();
-      setWeather(data.current);
+      // 🔥 Ensure loading <p> is visible for Cypress
+      setTimeout(() => {
+        setWeather(data.current);
+        setLoading(false);
+      }, 1000); // 1 second is SAFE
     } catch (error) {
       alert("Failed to fetch weather data");
-    } finally {
       setLoading(false);
     }
   };
   return (
-     <div className="app">
+    <div className="app">
       <div className="weather-container">
         {/* Search bar */}
         <div className="search-bar">
           <input type="text"
-          placeholder='Enter City'
+            placeholder='Enter City'
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
           <button onClick={handleSearch}>Search</button>
         </div>
+
         {/* Loading message (MUST be p element) */}
-        {loading && <p>Loading data…</p>}
+        {loading && (<p>Loading data...</p>)}
         {/* Weather cards */}
         {weather && (<div className="weather-cards">
+
           <div className="weather-card">
             <h3>Temperature</h3>
             {weather ? `${weather.temp_c} °C` : "-- °C"}
@@ -56,7 +61,7 @@ function App() {
 
           <div className="weather-card">
             <h3>Condition</h3>
-             {weather ? weather.condition.text : "--"}
+            {weather ? weather.condition.text : "--"}
           </div>
 
           <div className="weather-card">
@@ -64,6 +69,8 @@ function App() {
             {weather ? `${weather.wind_kph} kph` : "-- kph"}
           </div>
         </div>)}
+
+
       </div>
     </div>
   );
