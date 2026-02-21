@@ -30,7 +30,7 @@ function App() {
   const secs = String(seconds % 60).padStart(2, "0");
   return (
     <div>
-      <h1>StopWatch</h1>
+      <h1>Stopwatch</h1>
 
       <p>Time: {minutes}:{secs}</p>
 
