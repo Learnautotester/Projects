@@ -18,7 +18,7 @@ const {
 
 
 const app=express();
-const PORT=8082;
+const PORT = process.env.PORT || 8082;
 const DB_URI="mongodb+srv://nehalsingh188_db_user:0ovbRtOKsz0IFzHD@cluster0.0lv9cqd.mongodb.net/task-manager?appName=Cluster0";
 app.use(cors());
 app.use(express.json());
